@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "JWnkUcUPBp9B+d2nAJxnaKUX42qnO/GWZq1+PbWeLRA=",
+  "Source": "MockHotelsAPI",
+  "BasePath": "_content/MockHotelsAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

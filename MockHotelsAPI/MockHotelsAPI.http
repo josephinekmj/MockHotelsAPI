@@ -1,0 +1,6 @@
+@MockHotelsAPI_HostAddress = http://localhost:5144
+
+GET {{MockHotelsAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

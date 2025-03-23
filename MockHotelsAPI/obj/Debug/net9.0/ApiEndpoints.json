@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "MockHotelsAPI.Controllers.HotelsController",
+    "Method": "Get",
+    "RelativePath": "api/Hotels",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

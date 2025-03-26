@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MockHotelsAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e10b87530e99ee1aa0b0df884aa450badbdec68e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2c91d92771e6f417fbe786a38ec99afe0c86e29")]
 [assembly: System.Reflection.AssemblyProductAttribute("MockHotelsAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MockHotelsAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qd9VtLnGRWc=",
+  "dgSpecHash": "Jo8uZyoSr7E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\josep\\source\\repos\\MockHotelsAPI\\MockHotelsAPI.csproj",
+  "projectFilePath": "C:\\Users\\josep\\Source\\Repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\josep\\.nuget\\packages\\bogus\\35.6.2\\bogus.35.6.2.nupkg.sha512",
     "C:\\Users\\josep\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",

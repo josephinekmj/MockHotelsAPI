@@ -1,79 +1,70 @@
 using Microsoft.OpenApi.Models;
 
-var builder = WebApplication.CreateBuilder(args);
-
-/// <summary>
-/// Registrerer controller-support i ASP.NET Core.
-/// Det gør det muligt at bruge attribut-baserede controllers,
-/// som f.eks. HotelsController.cs, til at definere REST-endpoints.
-/// </summary>
-builder.Services.AddControllers(); // Aktiverer brug af [ApiController]-baserede controllers
-
-/// <summary>   
-/// CORS står for "Cross-Origin Resource Sharing" og er en teknik, 
-/// som gør det muligt at anmode om ressourcer fra en anden kilde end den, der leverer websiden.
-/// I dette tilfælde tillader vi adgang for vores Blazor-frontend, som kører på en anden port.
-/// Blazor-frontend'en kører på https://localhost:7177, mens API'et kører på https://localhost:7121.
-builder.Services.AddCors(options =>
+namespace MockHotelsAPI
 {
-    options.AddDefaultPolicy(builder =>
+    public class Program
     {
-        builder.WithOrigins("https://localhost:7177") //Tillader kun anmodninger fra denne URL
-            .AllowAnyHeader() // Tillad alle headers
-            .AllowAnyMethod(); // Tillad alle HTTP-metoder (GET, POST, PUT, DELETE, mm.)
-    });
-});
+        public static void Main(string[] args)
+        {
+            /// <summary>
+            /// Opretter en builder som bruges til at konfigurere applikationen.
+            /// </summary>
+            var builder = WebApplication.CreateBuilder(args);
 
-/// <summary>
-/// Gør det muligt at bruge Swagger UI – interaktiv dokumentation og testværktøj.
-/// Swagger vil automatisk dokumentere alle dine API-endpoints.
-/// </summary>
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "MockHotelsAPI",
-        Version = "v1",
-        Description = "En mock API til test og udvikling af hotelsøgning" // i Gotorz
-    });
-});
+            /// <summary>
+            /// Registrerer support til controllers i ASP.NET Core.
+            /// GÃ¸r det muligt at bruge [ApiController]-baserede endpoints som HotelsController.cs
+            /// </summary>
+            builder.Services.AddControllers();
 
-var app = builder.Build();
+            /// <summary>
+            /// TilfÃ¸jer Swagger (OpenAPI) dokumentation og test-vÃ¦rktÃ¸j.
+            /// Swagger dokumenterer automatisk alle endpoints i API'et.
+            /// </summary>
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Mock Hotels API",
+                    Version = "v1",
+                    Description = "En mock API til hoteldata med fiktive ophold og faciliteter."
+                });
+            });
 
-/// <summary>
-/// Aktiverer Swagger og Swagger UI – kun i udviklingsmiljø.
-/// Det betyder, at du kan se dokumentationen på /swagger, når du kører lokalt.
-/// </summary>
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MockHotelsAPI v1");
-        c.RoutePrefix = string.Empty; // Gør at Swagger åbnes direkte i browseren
-    });
+            /// <summary>
+            /// Bygger appen med de services og konfigurationer der er blevet tilfÃ¸jet.
+            /// </summary>
+            var app = builder.Build();
+
+            /// <summary>
+            /// Aktiver Swagger og Swagger UI i udviklingsmiljÃ¸.
+            /// Det giver mulighed for at teste APIâ€™et via browseren.
+            /// </summary>
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mock Hotels API v1");
+                    c.RoutePrefix = string.Empty;
+                });
+            }
+
+            /// <summary>
+            /// Autorisation middleware â€“ forberedt til fremtidig sikkerhed.
+            /// </summary>
+            app.UseAuthorization();
+
+            /// <summary>
+            /// Aktiverer controller-routing, sÃ¥ API-endpoints kan tilgÃ¥s.
+            /// </summary>
+            app.MapControllers();
+
+            /// <summary>
+            /// Starter applikationen og gÃ¸r den klar til at modtage kald.
+            /// </summary>
+            app.Run();
+        }
+    }
 }
-
-/// <summary>
-/// Aktiverer CORS med den policy vi definerede ovenfor ("AllowBlazorFrontend").
-/// Dette skal stå før MapControllers, så anmodninger bliver korrekt håndteret.
-/// </summary>
-app.UseCors("AllowBlazorFrontend");
-
-/// <summary>
-/// Bruges til autorisation – selvom vi ikke bruger det endnu,
-/// skal det være med i pipelinen, hvis vi tilføjer sikkerhed senere.
-/// </summary>
-app.UseAuthorization();
-
-/// <summary>
-/// Mapper controller-ruter, som f.eks. GET /api/hotels,
-/// så API'en kan modtage HTTP-anmodninger.
-/// </summary>
-app.MapControllers();
-
-/// <summary>
-/// Starter hele webapplikationen.
-/// </summary>
-app.Run();

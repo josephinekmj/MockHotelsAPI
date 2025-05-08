@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josep\\Source\\Repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj": {}
+    "C:\\Users\\josep\\source\\repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josep\\Source\\Repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj": {
+    "C:\\Users\\josep\\source\\repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josep\\Source\\Repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj",
+        "projectUniqueName": "C:\\Users\\josep\\source\\repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj",
         "projectName": "MockHotelsAPI",
-        "projectPath": "C:\\Users\\josep\\Source\\Repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj",
+        "projectPath": "C:\\Users\\josep\\source\\repos\\MockHotelsAPI\\MockHotelsAPI\\MockHotelsAPI.csproj",
         "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josep\\Source\\Repos\\MockHotelsAPI\\MockHotelsAPI\\obj\\",
+        "outputPath": "C:\\Users\\josep\\source\\repos\\MockHotelsAPI\\MockHotelsAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[9.0.3, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -74,12 +78,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-              "version": "[9.0.201, 9.0.201]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -88,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

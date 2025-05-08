@@ -41,7 +41,7 @@ namespace MockHotelsAPI
             /// Aktiver Swagger og Swagger UI i udviklingsmiljø.
             /// Det giver mulighed for at teste API’et via browseren.
             /// </summary>
-            if (app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
@@ -60,6 +60,14 @@ namespace MockHotelsAPI
             /// Aktiverer controller-routing, så API-endpoints kan tilgås.
             /// </summary>
             app.MapControllers();
+
+            /// <summary>
+            /// Lytter på port 8080 for HTTP-anmodninger.
+            /// </summary>
+            var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+            app.Urls.Add($"http://+:{port}");
+            Console.WriteLine($"Running on port: {Environment.GetEnvironmentVariable("PORT")}");
+
 
             /// <summary>
             /// Starter applikationen og gør den klar til at modtage kald.
